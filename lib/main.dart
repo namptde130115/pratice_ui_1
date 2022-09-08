@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pratice_ui_1/constant.dart';
+import 'package:pratice_ui_1/models/advertisement.dart';
+import 'package:pratice_ui_1/services/advertisement.dart';
 import 'package:pratice_ui_1/widget/card_navigate.dart';
 import 'package:pratice_ui_1/widget/writing.dart';
 
@@ -31,10 +32,30 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  List<Advertisement>? advertisements;
+  var isLoaded = false;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    //fetch data from API
+    getData();
+  }
+
+  getData() async {
+    advertisements = await AdvertisementService().getAdvertisement();
+    if (advertisements != null) {
+      setState(() {
+        isLoaded = true;
+      });
+    }
   }
 
   @override
@@ -65,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Column(children: const [
+              child: Column(children: [
                 CardNavigate(
                     mainText: 'Thị Trường Toàn Cảnh',
                     subText: 'Điều kiện thị trường hiện tại',
@@ -84,12 +105,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     subText: 'điều chỉnh danh mục theo chiến lược kỳ vọng',
                     stt: '4'),
                 CardNavigate(
-                    mainText: 'Quyết định giải ngân',
+                    mainText: 'Thị Trường Toàn Cảnh',
                     subText: 'Đội ngũ chuyên gia hô trợ suốt hành trình đầu tư',
                     stt: '5'),
               ]),
             ),
-            Writing()
           ]),
         ),
         bottomNavigationBar: Theme(
