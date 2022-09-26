@@ -124,6 +124,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           subText:
                               'Đội ngũ chuyên gia hô trợ suốt hành trình đầu tư',
                           stt: '5'),
+                      CardNavigate(
+                          mainText: 'Thị Trường Toàn Cảnh',
+                          subText:
+                              'Đội ngũ chuyên gia hô trợ suốt hành trình đầu tư',
+                          stt: '5'),
                     ]),
                   ),
                 ]),

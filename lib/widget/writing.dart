@@ -12,6 +12,11 @@ class WritingContent {
   final String description;
 
   WritingContent(this.id, this.title, this.subtitle, this.description);
+
+  //Config lai list
+  // WritingContent.fromJson(Map<String, dynamic> json) {
+
+  // }
 }
 
 class Writing extends StatelessWidget {
