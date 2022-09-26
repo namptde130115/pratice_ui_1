@@ -7,7 +7,7 @@ String postToJson(List<Advertisement> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Advertisement {
-  final int id;
+  final String id;
   final String name;
   final String description;
   // final String imageUrl;

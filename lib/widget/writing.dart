@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:pratice_ui_1/constant.dart';
+import 'package:pratice_ui_1/main.dart';
+import 'package:pratice_ui_1/provider/advertisement.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:provider/provider.dart';
 
-class Writing extends StatelessWidget {
-  const Writing(
-      {Key? key,
-      required this.title,
-      required this.subtitle,
-      required this.description})
-      : super(key: key);
-
+class WritingContent {
+  final int id;
   final String title;
   final String subtitle;
   final String description;
 
+  WritingContent(this.id, this.title, this.subtitle, this.description);
+}
+
+class Writing extends StatelessWidget {
+  const Writing({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final provider = Provider.of<WritingProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -45,15 +51,24 @@ class Writing extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title,
+                      Text(
+                          provider.contentSelected != null
+                              ? provider.contentSelected!['title']
+                              : '',
                           style: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w900)),
-                      Text(subtitle,
+                      Text(
+                          provider.contentSelected != null
+                              ? provider.contentSelected!['subtitle']
+                              : '',
                           style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                               color: primaryClolor)),
-                      Text(description,
+                      Text(
+                          provider.contentSelected != null
+                              ? provider.contentSelected!['description']
+                              : '',
                           style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w500)),
                     ]),
@@ -62,16 +77,23 @@ class Writing extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomRight,
-            
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
-                icon: const Icon(Icons.arrow_forward, color: Colors.white),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
+                  icon: const Icon(Icons.arrow_forward, color: Colors.white),
+                  onPressed: () {
+                    if (provider.currentId == provider.writingLength) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
+                    } else {
+                      provider.setCurrentWriting(provider.currentId + 1);
+                    }
+                  }),
             ),
           ),
         ]),
