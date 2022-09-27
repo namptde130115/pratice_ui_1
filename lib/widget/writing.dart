@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pratice_ui_1/constant.dart';
-import 'package:pratice_ui_1/main.dart';
 import 'package:pratice_ui_1/provider/advertisement.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
