@@ -6,17 +6,23 @@ import 'package:pratice_ui_1/provider/advertisement.dart';
 import 'package:provider/provider.dart';
 
 class WritingContent {
-  final int id;
-  final String title;
-  final String subtitle;
-  final String description;
+  int id;
+  String title;
+  String subtitle;
+  String description;
 
-  WritingContent(this.id, this.title, this.subtitle, this.description);
-
-  //Config lai list
-  // WritingContent.fromJson(Map<String, dynamic> json) {
-
-  // }
+  WritingContent.fromJson(
+    Map<String, dynamic> json,
+    this.id,
+    this.title,
+    this.subtitle,
+    this.description,
+  ) {
+    id = json['id'];
+    title = json['title'];
+    subtitle = json['subtitle'];
+    description = json['description'];
+  }
 }
 
 class Writing extends StatelessWidget {
@@ -82,23 +88,50 @@ class Writing extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomRight,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(10),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Row(
+                children: [
+                  if (provider.currentId != 1)
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: IconButton(
+                              icon: const Icon(Icons.arrow_back,
+                                  color: Colors.white),
+                              onPressed: () {
+                                provider
+                                    .setCurrentWriting(provider.currentId - 1);
+                              }),
+                        ),
+                      ),
+                    ),
+                  if (provider.currentId != provider.writingLength)
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: IconButton(
+                              icon: const Icon(Icons.arrow_forward,
+                                  color: Colors.white),
+                              onPressed: () {
+                                provider
+                                    .setCurrentWriting(provider.currentId + 1);
+                              }),
+                        ),
+                      ),
+                    ),
+                ],
               ),
-              child: IconButton(
-                  icon: const Icon(Icons.arrow_forward, color: Colors.white),
-                  onPressed: () {
-                    if (provider.currentId == provider.writingLength) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
-                    } else {
-                      provider.setCurrentWriting(provider.currentId + 1);
-                    }
-                  }),
             ),
           ),
         ]),

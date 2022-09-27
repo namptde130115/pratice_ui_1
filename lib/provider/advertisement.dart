@@ -28,6 +28,8 @@ List<Map<String, dynamic>> content = [
   },
 ];
 
+
+
 class WritingProvider extends ChangeNotifier {
   final List<WritingContent> _listWitingContent = [];
 
@@ -37,11 +39,9 @@ class WritingProvider extends ChangeNotifier {
 
   int currentId = 0;
   int get writingLength => content.length;
-  // List<WritingContent> get todoList =>
-  //     _listWitingContent.map((writing) => writing).toList();
+
 
   setCurrentWriting(int index) {
-    print("xxxxxx=>${index}");
     currentId = index;
     _contentSelected = content[index - 1];
     notifyListeners();
