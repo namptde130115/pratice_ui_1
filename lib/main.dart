@@ -4,7 +4,7 @@ import 'package:pratice_ui_1/provider/advertisement.dart';
 import 'package:pratice_ui_1/screens/first_screen.dart';
 import 'package:pratice_ui_1/screens/second_screen.dart';
 import 'package:pratice_ui_1/services/advertisement.dart';
-import 'package:pratice_ui_1/widget/card_navigate.dart';
+import 'package:pratice_ui_1/widget/bottomnavigate.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -69,21 +69,19 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return Scaffold(
-        appBar: _selectedIndex == 0
-            ? AppBar(
-                leading: IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-                title: const Text('Hướng dẫn'),
-                centerTitle: true,
-              )
-            : null,
-        body: widgetOptions.elementAt(_selectedIndex),
-        bottomNavigationBar: Theme(
+      appBar: _selectedIndex == 0
+          ? AppBar(
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              title: const Text('Hướng dẫn'),
+              centerTitle: true,
+            )
+          : null,
+      body: widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-              // canvasColor: Colors.red,
-              // primaryColor: Colors.red,
               textTheme: Theme.of(context)
                   .textTheme
                   .copyWith(caption: const TextStyle(color: Colors.black))),
@@ -96,57 +94,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.black38, spreadRadius: 0, blurRadius: 10),
               ],
             ),
-            child: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.white,
-              items: [
-                BottomNavigationBarItem(
-                  icon: const Icon(Icons.home),
-                  activeIcon: Container(
-                    width: 60,
-                    decoration: const BoxDecoration(
-                        border: Border(
-                      top: BorderSide(
-                        color: Colors.red,
-                        width: 3,
-                      ),
-                    )),
-                    child: Icon(Icons.home),
-                  ),
-                  label: 'Nhận định',
-                ),
-                BottomNavigationBarItem(
-                  icon: const Icon(Icons.money),
-                  activeIcon: Container(
-                    width: 60,
-                    decoration: const BoxDecoration(
-                        border: Border(
-                      top: BorderSide(
-                        color: Colors.red,
-                        width: 3,
-                      ),
-                    )),
-                    child: Icon(Icons.home),
-                  ),
-                  label: 'Dòng tiền',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.badge),
-                  label: 'Lập danh mục',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.settings),
-                  label: 'Quản trị',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle),
-                  label: 'Hướng dẫn',
-                )
-              ],
-              currentIndex: _selectedIndex,
-              onTap: _onItemTapped,
+            child: BottomNavigate(
+              selectedIndex: _selectedIndex,
+              onItemTapped: _onItemTapped,
             ),
-          ),
-        ));
+          )),
+    );
   }
 }

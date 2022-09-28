@@ -1,29 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pratice_ui_1/constant.dart';
+import 'package:pratice_ui_1/constants/colors.dart';
 import 'package:pratice_ui_1/provider/advertisement.dart';
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
-
-class WritingContent {
-  int id;
-  String title;
-  String subtitle;
-  String description;
-
-  WritingContent.fromJson(
-    Map<String, dynamic> json,
-    this.id,
-    this.title,
-    this.subtitle,
-    this.description,
-  ) {
-    id = json['id'];
-    title = json['title'];
-    subtitle = json['subtitle'];
-    description = json['description'];
-  }
-}
-
 class Writing extends StatelessWidget {
   const Writing({Key? key}) : super(key: key);
 
@@ -44,7 +22,7 @@ class Writing extends StatelessWidget {
       body: SizedBox(
         child: Column(children: [
           Container(
-            height: size.height * 0.25,
+            height: 200,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(

@@ -28,18 +28,14 @@ List<Map<String, dynamic>> content = [
   },
 ];
 
-
-
 class WritingProvider extends ChangeNotifier {
-  final List<WritingContent> _listWitingContent = [];
-
   Map<String, dynamic>? _contentSelected;
-
   Map<String, dynamic>? get contentSelected => _contentSelected;
 
   int currentId = 0;
   int get writingLength => content.length;
 
+  List<Map<String, dynamic>> get listContent => content;
 
   setCurrentWriting(int index) {
     currentId = index;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:pratice_ui_1/constant.dart';
+import 'package:pratice_ui_1/constants/colors.dart';
 
 const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
 
