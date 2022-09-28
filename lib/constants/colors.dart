@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const grayColor = Colors.grey;
+const redColor = Colors.red;
+const blackColor = Colors.black;
+const whiteColor = Colors.white;
 const primaryClolor = Color(0xFFD12129);
 const secondaryColor = Color(0xFFffdddd);
 const appBarColor = Color(0xFFDD3333);

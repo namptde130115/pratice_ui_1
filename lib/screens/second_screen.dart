@@ -21,7 +21,7 @@ class _SecondScreenState extends State<SecondScreen> {
     return SafeArea(
       child: Container(
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: whiteColor,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -74,13 +74,15 @@ class _SecondScreenState extends State<SecondScreen> {
                   child: Avatar(size: 22, imageUrl: image),
                 )
               ]),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.only(top: 30),
-                child: Text('Hi Jason ✌️\nbe productive today!',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4!
-                        .copyWith(fontWeight: FontWeight.w900)),
+                child: Text(
+                  'Hi Jason ✌️\nbe productive today!',
+                  style: TextStyle(
+                      color: blackColor,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w900),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
@@ -116,26 +118,26 @@ class _SecondScreenState extends State<SecondScreen> {
                         center: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Text(
                                 '70%',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline4!
-                                    .copyWith(fontWeight: FontWeight.w900),
+                                style: TextStyle(
+                                    color: grayColor,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w900),
                                 textAlign: TextAlign.center,
                               ),
                               Text(
                                 'Finished',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(fontWeight: FontWeight.w900),
+                                style: TextStyle(
+                                    color: grayColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w900),
                                 textAlign: TextAlign.center,
                               ),
                             ]),
                         backgroundColor: Colors.transparent,
-                        progressColor: Colors.white,
+                        progressColor: whiteColor,
                         circularStrokeCap: CircularStrokeCap.round,
                       ),
                     ),
@@ -148,11 +150,15 @@ class _SecondScreenState extends State<SecondScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
                             StatusCard(
-                                count: 32, title: 'Done', icon: Icons.check),
+                              count: 32,
+                              title: 'Done',
+                              icon: Icons.check,
+                            ),
                             StatusCard(
-                                count: 4,
-                                title: 'In Progress',
-                                icon: Icons.done),
+                              count: 4,
+                              title: 'In Progress',
+                              icon: Icons.done,
+                            ),
                             StatusCard(
                                 count: 7, title: 'Pending', icon: Icons.pause),
                           ],
@@ -169,7 +175,7 @@ class _SecondScreenState extends State<SecondScreen> {
                     children: [
                       const Text('Latest Chats',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: blackColor,
                               fontSize: 30,
                               fontWeight: FontWeight.w700)),
                       Padding(
@@ -186,7 +192,7 @@ class _SecondScreenState extends State<SecondScreen> {
                                   title: Text(
                                     '+5',
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 20),
+                                        color: whiteColor, fontSize: 20),
                                   ))
                             ]),
                       )
@@ -203,25 +209,25 @@ class _SecondScreenState extends State<SecondScreen> {
                         color: Color(0xfff85c6a),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           '6',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: whiteColor,
                             fontWeight: FontWeight.w700,
                           ),
                           textAlign: TextAlign.center,
                         ),
                       ),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: Text(
                         'Tasks',
                         style: TextStyle(
                           fontSize: 25,
-                          color: Colors.black,
+                          color: blackColor,
                           fontWeight: FontWeight.w700,
                         ),
                         textAlign: TextAlign.center,
@@ -277,10 +283,10 @@ class TaskCard extends StatelessWidget {
               ),
               height: 40,
               width: 40,
-              child: Center(
+              child: const Center(
                 child: Icon(
                   Icons.check,
-                  color: Colors.white,
+                  color: whiteColor,
                 ),
               ),
             ),
@@ -299,7 +305,7 @@ class TaskCard extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            color: Colors.black,
+                            color: blackColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w700),
                       ),
@@ -307,7 +313,7 @@ class TaskCard extends StatelessWidget {
                     Text(
                       '2d . in progress',
                       style: TextStyle(
-                          color: Colors.black,
+                          color: blackColor,
                           fontSize: 12,
                           fontWeight: FontWeight.w400),
                     ),
@@ -352,7 +358,7 @@ class Avatar extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(5.5),
           decoration: BoxDecoration(
-              border: Border.all(width: 2, color: Colors.white),
+              border: Border.all(width: 2, color: whiteColor),
               borderRadius: BorderRadius.circular(90.0),
               color: Colors.green),
         ),
@@ -392,17 +398,13 @@ class StatusCard extends StatelessWidget {
           children: [
             Text(
               '$count',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium!
-                  .copyWith(fontWeight: FontWeight.w900),
+              style: const TextStyle(
+                  color: blackColor, fontSize: 18, fontWeight: FontWeight.w700),
             ),
             Text(
               title,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .copyWith(fontWeight: FontWeight.w900),
+              style: const TextStyle(
+                  color: blackColor, fontSize: 14, fontWeight: FontWeight.w700),
             ),
           ],
         ),

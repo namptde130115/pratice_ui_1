@@ -33,7 +33,7 @@ class FirstScreen extends StatelessWidget {
                 child: Container(
                   width: widthSize,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: whiteColor,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: primaryClolor)),
                   child: Padding(
@@ -94,18 +94,30 @@ class FirstScreen extends StatelessWidget {
               ),
             ),
           ),
-          const Text(
-            'Hướng dẫn đầu tư hiệu quả cùng Fns',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w900,
-              height: 3,
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            child: Text(
+              'Hướng dẫn đầu tư hiệu quả cùng Fns sssssssssssssssss',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w900,
+                height: 3,
+              ),
             ),
           ),
-          const Text(
-            'Giúp bạn giải ngân trong 3 click',
-            style: TextStyle(
-              fontSize: 16,
+          const Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Text(
+              'Giúp bạn giải ngân trong 3 click sssssss ssssssssss',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
           ),
           Padding(

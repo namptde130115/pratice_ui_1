@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pratice_ui_1/constants/colors.dart';
 import 'package:pratice_ui_1/provider/advertisement.dart';
 import 'package:provider/provider.dart';
+
 class Writing extends StatelessWidget {
   const Writing({Key? key}) : super(key: key);
 
@@ -13,7 +14,7 @@ class Writing extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: whiteColor),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text('Hướng dẫn'),
@@ -75,12 +76,14 @@ class Writing extends StatelessWidget {
                         alignment: Alignment.bottomLeft,
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.red,
+                            color: redColor,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: IconButton(
-                              icon: const Icon(Icons.arrow_back,
-                                  color: Colors.white),
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: whiteColor,
+                              ),
                               onPressed: () {
                                 provider
                                     .setCurrentWriting(provider.currentId - 1);
@@ -94,12 +97,14 @@ class Writing extends StatelessWidget {
                         alignment: Alignment.bottomRight,
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.red,
+                            color: redColor,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: IconButton(
-                              icon: const Icon(Icons.arrow_forward,
-                                  color: Colors.white),
+                              icon: const Icon(
+                                Icons.arrow_forward,
+                                color: whiteColor,
+                              ),
                               onPressed: () {
                                 provider
                                     .setCurrentWriting(provider.currentId + 1);
